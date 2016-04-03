@@ -1,0 +1,124 @@
+.panel-warning > .panel-heading{
+  color:#fff;
+  border-color:#fff;
+  text-align:center;
+  background-image:initial;
+  background-color:#1c75bc;
+}
+
+.panel-warning > .panel-body{
+  padding:5px;
+  margin-left:10px;
+  margin-right:10px;
+  margin-top:5px;
+  margin-bottom:10px;
+  background-color:#1c75bc;
+}
+
+.panel-warning{
+  margin-top:20px;
+  margin-bottom:20px;
+  background-color:#1c75bc;
+  border:0px solid;
+  border-radius:1px;
+  -webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);
+  box-shadow:0 1px 1px rgba(0,0,0,.05);
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.panel-info > .panel-heading{
+  color:#333333;
+  background-color:#fff;
+  border-color:#fff;
+  text-align:center;
+}
+
+.panel-info > .panel-body{
+  padding:5px;
+  margin-left:10px;
+  margin-right:10px;
+  margin-top:5px;
+  margin-bottom:10px;
+}
+
+.panel-info > .panel-title{
+  margin-top:20px;
+  margin-bottom:0;
+  font-size:120px;
+  color:inherit;
+}
+
+.panel-info{
+  margin-top:20px;
+  margin-bottom:20px;
+  background-color:#fff;
+  border:0px solid;
+  border-radius:4px;
+  -webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);
+  box-shadow:0 1px 1px rgba(0,0,0,.05);
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.panel{
+  margin-top:20px;
+  margin-bottom:20px;
+  background-color:#fff;
+  border:1px solid;
+  border-radius:4px;
+  -webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);
+  box-shadow:0 1px 1px rgba(0,0,0,.05);
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.panel-primary > .panel-heading{
+  color:#fff;
+  background-color:#1c75bc;
+  border-color:#1c75bc;
+}
+
+.panel-body{
+  padding:15px;
+  margin-left:20px;
+  margin-right:20px;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+.list-inline > li{
+  display:inline-block;
+  padding-right:5px;
+  padding-left:5px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.frontpage{
+  min-height:200px;
+}
+
+.tab-pane > .login{
+  background-color:#000;
+}
+
+.jumbotron{
+  padding-top:30px;
+  padding-bottom:10px;
+  margin-bottom:10px;
+  color:#fff;
+  background-color:#1c75bc;
+}
+
+.modal-body{
+  position:relative;
+  padding:15px;
+  background-color:#1c75bc;
+}
+
+.jumbotron .h1, .jumbotron h1{
+  color:inherit;
+  text-align:center;
+}
+

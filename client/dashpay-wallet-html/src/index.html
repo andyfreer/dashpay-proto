@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashPay</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/page.css">
+    <link rel="stylesheet" href="assets/css/tabs.css">
+    <link rel="stylesheet" href="assets/css/text.css">
+    <link rel="stylesheet" href="assets/css/img.css">
+    <link rel="stylesheet" href="assets/css/panel.css">
+    <link rel="stylesheet" href="assets/css/form.css">
+</head>
+
+<body>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-welcome">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header hidden">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">Modal Title</h4></div>
+                <div class="modal-body">
+                    <div class="jumbotron"><img src=" data:image/png;base64,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">
+                        <h6> </h6>
+                        <p class="text-center">Welcome to the first cryptocurrency with decentralized access from any device.</p>
+                        <ul>
+                            <li>Connect directly to the <a class="text-info" href="http://www.dash.org" target="_blank"><span style="text-decoration: underline;">Dash</span></a> P2P network from your browser or mobile device.</li>
+                            <li>Censorship-proof as there's no centralized server to shutdown or block</li>
+                            <li>Cheaper than PayPal and no one can freeze your funds or demand personal info</li>
+                            <li>Buy and sell online without verification or centralized payment processors.</li>
+                            <li>Clear your transaction history and keep your online transactions private.</li>
+                            <li>Connect &amp; Pay friends by name, no confusing addresses or lost change.</li>
+                            <li>Decentralized-SPV access across <a class="text-info" href="http://178.254.18.153/~pub/Darkcoin/Masternodes_Map.html" target="_blank"><span style="text-decoration: underline;">3,500 Masternodes hosted by Dash users</span></a>.</li>
+                            <li>Masternodes serve web requests in self-regulating quorums that can't be faked.</li>
+                            <li>Downloadable HTML wallets that connect only to Dash's P2P network.</li>
+                            <li>Hosted HTML wallets for signing in and connecting using your favourite social app</li>
+                            <li>Access using Tor for total end-to-end online payments anonymity.</li>
+                        </ul>
+                        <button class="btn btn-primary btn-lg center-block" type="button" id="btn-welcome-modal">Try the Prototype!</button>
+                    </div>
+                </div>
+                <div class="modal-footer hidden"></div>
+            </div>
+        </div>
+    </div>
+    <div id="page-loggedin" class="page-main">
+        <div>
+            <a href="#"> <img src="data:image/png;base64,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"
+                width="24" id="btn-logout" class="pull-right"></a>
+            <a href="#"><img src="data:image/png;base64,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"
+                width="24" id="btn-reload" class="pull-left"></a>
+            <a href="https://www.dash.org/evolution/" target="_blank"><img src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAAhCAYAAACr1L6MAAAACXBIWXMAAAsTAAALEwEAmpwYAAABOWlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarZGxSsNQFIa/G0XFoVYI4uBwJ1FQbNXBjElbiiBYq0OSrUlDldIk3NyqfQhHtw4u7j6Bk6PgoPgEvoHi1MEhSHASwW/6zs/hcOAHo2LXnYZRhkGsVbvpSNfz5ewTM0wBQCfMUrvVOgCIkzjiJwI+XxEAz5t23WnwN+bDVGlgAmx3oywEUQH6FzrVIMaAGfRTDeIOMNVJuwbiASj1cn8BSkHub0BJuZ4P4gMwe67ngzEHmEHuK4Cpo0sNUEvSkTrrnWpZtSxL2t0kiOTxKNPRIJP7cZioNFEdHXWB/D8AFvPFdtORa1XL2lvnn3E9X+b2foQAxNJjkRWEQ3X+3YWx8/tc3Bgvw+EtTE+KbPcKbjZg4brIVqtQ3oL78RfCs0/+HAmzJwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6AAAUggAARVYAAA6lwAAF2/XWh+QAAARXUlEQVR42uydd5wV1RXHv7ssLF2QogYQS7CLxhIsiXUFFA2oMYmdgD2Jpiea8vETE0lVUxSJJRhj1Fg3UgRFrDGKGhWMUQiJgpAo6tLLtvxxzmSGeTPv3fvmvvdm387v83kfHrNT7tx37z3td86taW9vJ0OGDBkyZKg21Fmcuw0wFdgB2FDBNtfoZyXwGHA30FzEffYBxgD7AYOAdv2UErX67zJgLnBvkfc5HDga2BfoC7RVeBwN0LFxW+j4RGASsLbA79kP+CrwV4dt+gzwxQLPrgV6AxcBr3XwudwFmKx93sPxvZcAp3WytXEYcAfQB7geuDkl7doHuF2/fw+YYXHtgYH3uC5ivnZqATcSOD1l7f88ME4XqNWG1/QHvgKcC+xYwbZPBm7VtrcaXvNR4DLgLBUKacKvI45dCBxieP06x+2ZBHzS8NyNVTCXfwBcUcJFtbOhd2D87JGidvUH9tfvtuvXwMC1u2UW3NY4KaXv8Dlge2C0gSV3GvAzYHgK2l0LnKcTyURx+BLwI9Uo04alwF2hYyOAjxle/yCwyGF7dgU+YXjuQ9r+jozDQ8JtlYXSZILXO6GAawaaVJH8MEXt2hz4vtby2pqY751ewNUDJ6b4PY4CxpPf5Xc+8NuUCujpwJw85/wU+EaK+39+xII6XseNCR523J7RQC/Dc2dXwTxuCHy/Hvg+bsMIWaC+OvBvfLfk05mA83EAsGfK3+X0PAJuYkqFm4ez8wi4q1Mu3AD+FHFsjOG160og4EyVsbXAA1Uwj4Pa+I+AD7K1PEME/qFrYadBreF5EzrAu4yIOb4ncGPK2759zPFxwOUpb/tKcskhO2Iee3sMeMthe4aoRW+CZ4D/VME8DlrPXbJ1PEMGcwFXD5zZAd4ljkk4FXNXWaWwOeKYx1pNO2YDa0LHjkdiiyaY4bg9xwA9E1ienUVpzdAxsSzw/b9Zd+SHiYtyD9UQ36a8dPQtCN15mOH5r8csdkcaXr9WrZFujgRWH+Ajhue/GnFsksW7rwTWY0caSoouOh6SuCc34t49OdZifM3LloCi0EOV3jrg78CTDu55LOKFaUZi0iYkmR0RVuGoGMG+DFgM/IviUolMcDKwnT5jTpH36AV8Wvv1JeD50N8bEAY1wE6B46cDu8Tccz7wRujYR4BP6ffHEZelDQYA2yKM+kERf9+k7V8JvFdkXwxXBdlWVvxNP9YCbokOoBbKG2zeBFwAXGN4/qwYIWGCdoRh+SzQ1UHbNyA5KpcbPrsx4vgZFhrdYSqgyyngalXAvR86PshCqXgqpJEmxQ4WAu5pVdoyFOctuQjJq9qCuNiTMA23AWaqp2Uu8LsCC+Ak/Z13UUUyn4dmDbACyXO8AXGJu0INkh4zRNeOYgXcQBXqIOGUsIC7XJX1MCYSH1O7NELAjcT3Cn3ZUMD1UCF+Fn7ebd8C6/b7wD8RZvXdmMeE91alc7si+rBZ3/cWJMfPWMCt108lcLSFQHki4ocxXWhfSTA442Cag/Um8ELo2F46GE0wD1ieosVvnGp5JnjU8bOPsXj2DDIk8VBcoXOmG3AqyRKhjw8IqSvyeIq+ClyJXaqMtyDvoe2cC3wNd2kpy1TArUxwjxbgXWBwhMLorW+22BLjMQkK/kI4BPiNKjKm6K79MQQ4AiHIXVVAafFwQZHCDTVM9gGuVUF5vqmAqxT2xJwN93iENn40MLRCi90hmOdh3asDPDzhTV2l01P2u5m6F5pwX0nhBIsFpRrSAyqJucCLuvhdnFDAXar/PqH3jMJvgC8E/r8EWIC4SBcS7RLbF3F7HqbfeyMpJM8hbvSOQpX/GjAloPzepN+vIt7FvyThM8cjDGOPobtK+/pphBS2KMYSHRXo8yHAzkhBiyHADws8c3hA6b+IaG5CFIap8uJV2zlP2/fLupC53S9isbVBrQrNJpInmh6PeTLizBhLwhSuBVyDxbmzI9wexxpe+5YOujrcxA7D7cDSeh9g0fbnVVvtRXJixEadHKbuySexjz9kyMU0JP3mAFXqiim1dhhwqH6/PeacrweE23KkastNBvf+S+D7PsC3EFdbT+BOFRZrO0A/v6kfgHcCx58LvaNL4+KPgTXgRiT9xMRT9Gf9tx8Sp52iFvdViJv4gQKKJwizeb5lm+9G3LXTdC38HnBLUMBNQYKWSYgkNaqBfdZBJ59ieN6mCC2mXjU1Eywm10WYVDCYtn1phMY6DKlMYYJtEap7O+7p4TWB/m1E4heFBvixKuRMcDDiM69xIOC2qBvK1D3ZWMVCp5xxxXt04RukAqgYARcUXHdG/H0HXRy9xf3oIq2TRUi+6ZsqIIcC31Wh15GwXWj+lwJT8JnIF6nQsEUTUnTgZTUg+gG/1LU6rjSex/Hopkq7rbE1HamedKmuQ4d7Aq4P4rN00WGNCa1AEKbQQRaWQLjU0jH4rKNCmIPbskYj8eu9mVhvm0LHtid/EDeIPpSndNdeujicXEAZGGNxz/76KTdacUs0SBt+gnldVlP8mWiXVJNqzl9EcmWHYhcPHqJjyrMGo2JNZyFxHZAYXFLX21Xq3RmFxHx+TvGMv2rECHxX/31FCrcgnkHiptep8j6e3LJ+LnEvvst7Z0/AneRIuLXgpur2CZjnrkVVLxlr8az7Yo6fgwR9bYT1OiRuaOpafTjmHm2kL59pKFIzciTRrKgB2NN7K4HncVv3Mm34ZgnuuSZPn01TAddbXUQ/tLjvZxAy2BbiY8mfCnhaXOUtTlMB1w8JJ9yZybWtlFSPSX6do3tOB76jlv6JJRZw76iF2APo4gm4CY5u/iIS8E0K08LOreQy8bpjTjb4J9E+7JGUfiuJpTGWxFJdTEamcPAPUY36VxF/OxJxJ6Udj5LBFvnisIuQgtUnqYD7GWbkgG6I+wvE67M8Zrx5Oxm4tLrnaRvrkRhgJuB8HB4QFK86uudqhBB0AhJvrcecQGKL5oCAa6tTzfsoRzd/yJGlYBqDeobcBO+DMXdPNhJNp51QhoE0O8Yls0mt4F+ldAKMijk+tgNM3jb8IHi1YizJKOtRKJSreKMKuF0R99/9hkqst2VLXMWenfG3hXrF4fusQEhG+2mbMwhq8YtLLMQslcAUr6qAG6rPWFLCd/i/B60O8YEPcnRzFy6E0ZjHlaLYkzZushl5zPRSY1aBBaMB3z2TJkTFB3tjx1qtFF7AHaFoMvFVJPJhAeLqLRWeIDeuW2o8ghCGdkdIIyYC7mL99yXiGXPBHSFcFpBuxY+7bYtftKCzo3ugz13Hcb38vq6Ip2dJOV6oDmG+NZOMaNEVIWssdtAmUwZiC5KLE34fU+vrbV1swhihVmApsZzcxPSwmX0yElSfjLhqelCaSjItOrlNt5dZFXHsUMzLkrUhLq+ujtpei3ntyVkO++3yIrX/GSUWcIMpf4WWZsTNdyVC8BpJfvfWCPwiDPl2+QjWM3XJEm4PrHc98MvOdXbUBxTYLiVYZ1Drqme5XqgOoYReS7JabfXIXkNJMRDzBOkFCAU1iIMx39bnYaJ3kR7raPEtpGUXyi9rQxhe1yBVGPqUaBJuUat3iuH5LyZQSkDIOy/hM+OSLFIbkeD12Ybnu3RPvlOkgHu3ShfHW5B8td4I6eSCPOeep2vPaoSFGYdSEq1qAvMs2+/O75PaEvc35VQm6nAXSHSBBqQunalbJAwbN9ncGEt0Uhne8xGLc9uQZO5S4kLD89ZFWEE2OYdvAnc4bvtuhue9jts4zplFaqKrqU4sR/LiPo8UDv420W7FgSrg0LHQVGDshy0A19iM2zShjoz2QJ+Xsk/K5kJPW6muCYbntZLr5umCOfvyXaJZWb3UunjDQsvwLN8TdPIWwntExw4rhToLC2wBuTmHR2Aei3JdMeY44kkvYTzmWHNcToYwblQB1x8p9hBFHjkbPyWpEJFqbWhuukJXfN7BqsyC20rweMSSHo7vPSjwjBWVFHB9A9K8XGhBYgemxZUXkuue3Btzav0soqufr0ZiXrYYjHndzEfIjWPV6KLQXMY+b9d+PwXzAqdRAsqGCOO6/uOxFudWO3syDXgevz7l5BgBd47+O5Pcavdh/BdxoXdD3PSusA0+0/pth/Opo2MjPvlmN9zS+XcNKPhvleuFwgLuFPxYTDmDri0IHXiw4fn3RwyoUy2e1+h4kI7HPFE+Krn7Gr3H5jIP6C0IFdv03HtCx7phXndzMW6L29ZbWOxvUN3VS9KEa4E/qJBrYOu8wyPxq/zcYPi7rUAqGzU4bOOh+Ezt5xLeq7YC6yUlfOYi9YzsgVQw+psjOXNwQAlqKVcHhQXcJMxjGpXCB0RXSzGNAzXhvkDpiRbPDm/L0w+JSfROeb/fTm4+1CgLzfoh3Pre99MJaGo1Z3GW8uABxH07FLgsJOC8xO6lmBXT3aRW/8X6ex+EmzQPr5TTWpJvk+WNq+3K1L+ljl81Al/R72c4EnCfDSjSZa0DWxtaaA/rABPoMnITWffCvHblXNwy2bZH4lAmeDbi2WM6gHB7B9nXKcpyNYXrnbtt8h3vp/OgpcLP34AwKkFIXyP0+05IaS6Q7VM2Gt7PSyPootcNTNi+SwPW4FSkcn2xaA/M549TvBu1zcIaWx8QcjuV4Pd7EuEheGtt0vJ7+6lV760j91RKwDVQmeK3NrhZ3R9hjMWcMDPXcZvG4VdbMLFiwpjQARbNs4mOWR5jeP0ypOqMSxxneN4Kiqty35EQnMdpII7doQt2DbJDiTeGalWw/d7iXi/jx/L2VWv8iCLatA3wfaSivWe9XePgXT0XZ/cE91sd+N0K5Z+9h8QmAT6He1p/O5LuAULGmaH/L2ZcjUb4Dh7B5DuUuQhBXZHaeCUwHd2lNYGQ+BC3yb6eBWaq2YbN855FTtZyoU0Xpih30oGY75owj+J2JY7Dx/D3ECuEORbWQkdFMHb8LYSi75qwtBnzGPVihETi1ad8Aj/95i4Kl/6K8toMQ0IB++v9Zuq4WoikOkWVldobIZOMQshQwbzFiQFBkQQ3IUn/fdTaeRLZvTqKTBaHb+PH8AtZ4Gv0nYcjdTpnIZvBPsXWMfzWBGNgPnAJEietReqLnqnv9AxSwzeqEskA/FKJJ+In83vGyW3lnhiegOuNOYOx3GhVzevqmL8Px9w9OQ+3dfoGY17H82ly6bFHYV4BpNx4G4l9xCkEJ2G+a4JrpaLBQnN9kOpHME/yEiQPzSWrb70uWK9bXOPVp9wZIfh4v9fUIp7frPe6Ab/E1zj8vNcPia4pOzDCIlqqSoArt/UqJIbuJax/Uj9NmJPGgvE7k7zkKfhx/zH6eY+t3Zx34sfSisFUtbauRsIw++vnG/peTRHXdCc3j7kV+ClwRSUmhifgzkfKQaXNergP2VAxX4LuJZjnbLjOPzsL8zqe4TqdNdr2tOEDXZx+QXz9vz74hIFCWONYwPW06Lf15C+JVi1oRNyCZwYUL9ew3XdwlgqRUwLC7Taiy+OZ4hKE7DQROA0/pFIotNKKFFeepp4gk128u+KHHvobzO0PkL3mDtFj/Yp4v0cwK1j/FyQs81tgRz0WXof2jRFANr/n7xCSz0TgXPwYYz2FSTWrkF3Bb8W8wIJ3zyEWynOUTPN+r751AWHygv7wlazJ5hU9/ZdOkFkGWtBGhHqab9B214XWNVW82eDZ9aoJzY8QcG8hxJMNFezzGv1sRnKYZmqbCgmZBUjOZHOBRXE2hcuS2aAX8JpamCbPrtbKIeFxeCHiGpxQgvtvIDoGWwgXa9t21/Xl6w7a8qx+rkeIHSPUYopScl9GXGkvqvVpk3+1DnH79VHhWAiPIq7DsdouW8JeI7L/mmmMao4+a7RatwNCf38qRui8rN9N++I/wI8R1/IBSCnEg4gmuLyvz12GxCZfs+yD57S/FyaQQxsQN3FfYGlNe3uWxJ8hQ4YMGaoP/xsAsmevPgYYJ2QAAAAASUVORK5CYII="
+                width="330"></a>
+        </div>
+        <h6> </h6>
+        <p class="text-center text-info">Decentralized Web-Wallet Prototype</p>
+        <div class="page-inner">
+            <div id="tabs2">
+                <ul class="nav nav-tabs nav-justified" id="tabs-loggedin">
+                    <li id="tab-item-3"><a href="#tab-3" role="tab" data-toggle="tab">Dashboard </a></li>
+                    <li class="active" id="tab-item-4"><a href="#tab-4" role="tab" data-toggle="tab">Accounts </a></li>
+                    <li id="tab-item-5"><a href="#tab-5" role="tab" data-toggle="tab">Contacts </a></li>
+                    <li id="tab-item-6"><a href="#tab-6" role="tab" data-toggle="tab">Profile </a></li>
+                    <li id="tab-item-7"><a href="#tab-7" role="tab" data-toggle="tab">Debug </a></li>
+                </ul>
+                <div class="tab-content" id="tab-content-2">
+                    <div class="tab-pane" role="tabpanel" id="tab-3">
+                        <h3>Dashboard </h3>
+                        <p>Total balance, account summary and inbox for messages, contact/payment/arbitration requests will go here..</p>
+                    </div>
+                    <div class="tab-pane active" role="tabpanel" id="tab-4">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="text-primary" id="txt-accounts-list">Fund Accounts</h4></div>
+                                <div class="col-md-12">
+                                    <button class="btn btn-success pull-left" type="button" id="btn-accounts-get">Get Accounts</button>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <div>
+<table id='table-accounts' class='table'>
+    <thead>
+        <tr>
+            <th> Account Name </th>
+            <th> Balance </th>
+            <th> Options </th>
+        </tr>
+    </thead>
+</table>  
+</div>
+                            </div>
+                        </div>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Create a Funds Account</h3></div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-8">
+                                        <p>To create an account, please enter a name for the account and <strong>write down the Account Passphrase below</strong> and reenter it in the box. Keep this password safe, as you cannot spend your funds if you lose
+                                            it.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-6"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-8">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <label>Create New Fund Account:</label>
+                                            </div>
+                                            <div class="panel-body">
+                                                <h5 class="text-primary">Account Name:</h5>
+                                                <input type="text" placeholder="Enter a name for the account, e.g. &quot;Savings&quot;" autofocus="" id="inp-createAccount-name" class="form-input">
+                                                <h5 class="text-primary">Account Passphrase:</h5>
+                                                <h4 class="text-primary" id="txt-createAccount-passphrase">mnemonic </h4>
+                                                <input type="text" placeholder="Reenter the Passphrase" autofocus="" id="inp-createAccount-passphrase" class="form-input">
+                                                <div class="alert alert-danger" role="alert" id="txt-createAccount-result"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-8">
+                                        <button class="btn btn-info" type="button" id="btn-createAccount-refresh">Refresh </button>
+                                        <button class="btn btn-success pull-right" type="button" id="btn-createAccount">Create Account</button>
+                                    </div>
+                                </div>
+                                <div class="site-panel"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="tab-5">
+                        <h3>Contacts </h3>
+                        <p>List contacts, search contacts, add contacts, view/appove contact requests will go here..</p>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="tab-6">
+                        <h3>Profile </h3>
+                        <p>Managing the user's public data and private settings will go here..</p>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="tab-7">
+                        <h3>Debug </h3>
+                        <p>Prototype debug helper info will go here.. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="page-loggedout" class="page-front">
+        <div class="modal fade" role="dialog" tabindex="-1" id="modal-signup">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header hidden">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4 class="text-info modal-title">Signing Up</h4>
+                        <p class="text-info" id="txt-signup-modal">Connecting to the Dash network...</p>
+                        <button class="btn btn-primary center-block" type="button" id="btn-signup-modal">OK </button>
+                    </div>
+                    <div class="modal-footer hidden"></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="https://www.dash.org/evolution/" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKwAAAArCAYAAADlhGO4AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAH10RVh0QUxUVGFnAFRoZXNlIGdyYXBoaWNzIGNhbiBiZSB1c2VkIGZvciBkaXNwbGF5IGluIG9ubGluZSBzZXJ2aWNlcywgcmV0YWlsIGVzdGFibGlzaG1lbnRzLCBwcmVzcyBvciBvdGhlciBwcm9tb3Rpb25hbCBwdXJwb3Nlcy5+3GHEAAAAkXRFWHRDb3B5cmlnaHQAVGhlIERhc2ggbG9nbywgaWNvbiBhbmQgYWxsIGRlcml2YXRpdmVzIGFyZSBsaWNlbnNlZCBmb3IgdXNlIHVuZGVyIGEgQ3JlYXRpdmUgQ29tbW9ucyBBdHRyaWJ1dGlvbi1TaGFyZUFsaWtlIDQuMCBJbnRlcm5hdGlvbmFsIExpY2Vuc2UuuYw0IQAAAIZpVFh0RGVzY3JpcHRpb24AAAAAAFRoZXNlIGdyYXBoaWNzIGNhbiBiZSB1c2VkIGZvciBkaXNwbGF5IGluIG9ubGluZSBzZXJ2aWNlcywgcmV0YWlsIGVzdGFibGlzaG1lbnRzLCBwcmVzcyBvciBvdGhlciBwcm9tb3Rpb25hbCBwdXJwb3Nlcy7z4QsmAAAAlWlUWHRDb3B5cmlnaHQAAAAAAFRoZSBEYXNoIGxvZ28sIGljb24gYW5kIGFsbCBkZXJpdmF0aXZlcyBhcmUgbGljZW5zZWQgZm9yIHVzZSB1bmRlciBhIENyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24tU2hhcmVBbGlrZSA0LjAgSW50ZXJuYXRpb25hbCBMaWNlbnNlLuoTSXMAAAPGSURBVHja7FvhddowEBZ+DOAN6hGcDdwJcCcImaBkgmQD6ATUE4AnCEwQNoANQiagUp/oA2Psk3SWTul97zn+Ecs+n747fTofQjAYDAaDwWAwGAwGg8FgMBgMBiM4TqfT/BQWe3ks5ZEZ2Jxpu9882vkuj1d5pAZ2Fvrd9oF9PG3YNQWOe0XiGOj9UW/mAR99pFVkIRBgbwCf5p6DqQ9pw74VcFyOQNYc+KxVArmZPGVEkr1y6ryLrPKkyDILbGfRlXm0T5WdBRG/rkej0bHhxxIw7iDH7RCeXwKvqxPARY/EFErZQ9aciJ2THrKmhHxaWxJoPaSv2p6XILLfp6Zuy0wvhMgq2mzRQbUiRtY24kEJVCHMZQact7+rQBKRHOgj8EzQxwtBf0YjB9SfMSBLbHxqP8hF0lGbFiJAgPEuKTAjbFqyKySoFHl2Hn1eBZYDj56fh5YlM+hO0XLcHslOaLln1hg3A46bB54Hn9UB6Ny9n8ckhDhrtDTEsEGwzCRVQLJSlQOVoAZddKdeL0xNM4LhuH3gOZj6XAUM5vyf7h83dq9OWkhG3e+Bd4q7SDYIVV/F4J4+hnx0sIDyWQ2YH+jqUSDZCZ3zwxVh9UQUjg//FYAIscgBMGHFcB8TSkmyn/L8/TLoLYLf5H3QN4VjQ311N4KlE1xIYbtTtK4X6k1ROkBgXWUEYlBEW8rjh0PS8F52uyKsXo4LzJsOKAcOGHJAP3PuIyMgltMwM23akmUnBMl6E/wJUmTVkcmB0ldGUNABQ4m0uYMc8Imb4E8ikgMbLDkghuuP6JIDahneCZqIQg6cNWztmCGt9ZqObIgcuFrWEeTAUJuGu37US/CD7judiGH6CXLgfW3lwEIen442fpPHNMq9gG3dz6VeaPDFyQZ5QF9a13p1n7GvL4Uzmy+Fl5IgJGyXdei4rcMzjVcapFrv0Mv6ukGgEpiV//vegaEzwgeSneVX7gHQP88h2zvQpmEvtd1e0EMVOCNMLO1cArWaT7StApDMfKTSO3ApCQqCZD1qoW9DoBrJhnJAIvjGc+xyIPGg7Zwc3FLghmYEZyfbTqjBOK8lohafeAt+g4pQZ3UgMSwT+cSi2awRixwgGPwq+z9Zrh4owS+QWgnHRJevpzudRSwH7Mh60/BCOPg3Xf9MiGUEZexDRxucTzmQi/jlwELc6c4KIAdQ2kDPGTYVYb91K82y7erX1ASC7FS3SDZBf8/WXMIyEb5voNaa9dBxDWjOkeQA1Je1YDAYDAaDwWAwGAwGg8FgMBgMRlD8EWAASO9V6HyuayMAAAAASUVORK5CYII="></a>
+        </div>
+        <p class="text-center text-info">Decentralized Web-Wallet Prototype</p>
+        <div class="page-inner">
+            <div id="tabs1">
+                <ul class="nav nav-tabs nav-justified" id="tabs-loggedout">
+                    <li class="active" id="tab-item-1"><a href="#tab-1" id="tab-login" role="tab" data-toggle="tab">Login </a></li>
+                    <li id="tab-item-2"><a href="#tab-2" id="tab-signup" role="tab" data-toggle="tab">Signup </a></li>
+                </ul>
+                <div class="tab-content" id="tab-content-1">
+                    <div class="tab-pane active login" role="tabpanel" id="tab-1">
+                        <form>
+                            <div class="panel-form">
+                                <h1>Login </h1>
+                                <p>All logins to this prototype are for <strong>testing only :)</strong></p>
+                                <input class="form-control form-input" type="text" placeholder="Username" autofocus="" id="inp-login-uname">
+                                <p class="help-block">Your Dash username</p>
+                                <input class="form-control form-input" type="password" placeholder="Password" id="inp-login-pwd">
+                                <p class="help-block">Your login password</p>
+                                <div class="alert alert-danger" role="alert" id="txt-login-result"></div>
+                                <button class="btn btn-success input-submitbtn" type="button" id="btn-login">Login </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="tab-2">
+                        <div id="panel-signup" class="panel-info">
+                            <h1>Signup </h1>
+                            <p>Create a prototype test account. Note, currently all data is stored on a dev masternode and not in the blockchain!</p>
+                            <div id="group-signup-uname" class="form-group">
+                                <input type="text" placeholder="Username" autofocus="" id="inp-signup-uname" class="form-input"><span id="txt-signup-uname-min-len" class="help-block">Minimum of X characters</span></div>
+                            <input type="password" placeholder="Password" id="inp-signup-pwd" class="form-input">
+                            <p id="txt-signup-pwd-min-len" class="help-block">Minimum of X characters</p>
+                            <input type="password" placeholder="Confirm Password" id="inp-signup-pwdconf" class="form-input">
+                            <div class="alert alert-danger" role="alert" id="txt-signup-result"></div>
+                            <button class="btn btn-success input-submitbtn" type="button" id="btn-signup">Signup </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="text-center text-info">v//version - <a class="text-info" href="https://github.com/andyfreer/dashpay-proto" target="_blank"><span style="text-decoration: underline;">Github</span></a></p>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../lib/dashpay-wallet-sdk/build/DashPayWallet.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/signup.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/accounts.js"></script>
+</body>
+
+</html>

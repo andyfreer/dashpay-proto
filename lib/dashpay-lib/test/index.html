@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DashPay-Lib</title>
+</head>
+<body>
+<script src="build/DashPayLib.js"></script>
+<script>
+
+    // dashlib
+    var Dash = require('DashPayLib');
+
+    /*
+
+    // These probably don't work now since various restructuring...
+
+    console.log(Dash.lib.core.PrivateKey().toAddress().toString());
+    console.log(Dash.lib.crypto.newAddress());
+
+    // ecies
+    Dash.lib.crypto.testECIES();
+
+    // mnemonic
+    var code = Dash.lib.core.mnemonic();
+    console.log(code.toString());
+    var xpriv2 = code.toHDPrivateKey('my passphrase');
+    console.log(xpriv2.toString());
+    */
+
+    // brainwallet pwd
+    /*
+    var value = new Buffer('correct horse battery staple');
+    var hash = Dash.lib.core.crypto.Hash.sha256(value);
+    var bn = Dash.lib.core.crypto.BN.fromBuffer(hash);
+    var brainAddr = new Dash.lib.core.PrivateKey(bn).toAddress();
+
+    console.log(brainAddr);
+*/
+    // Brain pass
+    /*
+     Buffer = require('buffer-browserify').Buffer;
+     var value = new Buffer('correct horse battery staple');
+     var hash = Dash.lib.core.crypto.Hash.sha256(value);
+     var bn = Dash.lib.core.crypto.BN.fromBuffer(hash);
+     var address = new Dash.lib.core.PrivateKey(bn).toAddress();
+     console.log(address.toString());
+     */
+
+    /*
+    var tt = Dash.lib.ajax.testGetUsers(
+            function (err) {
+                console.log('error...' + err);
+            },
+            function (res) {
+                console.log('ok...' + res.face);
+            }
+    );
+    */
+    //console.log(tt);
+
+
+    // sign a message
+/*
+    var bitcore = Dash.lib.core;
+    var Message = Dash.lib.core.message;
+    var privateKey = bitcore.PrivateKey();//.fromWIF('cPBn5A4ikZvBTQ8D7NnvHZYCAxzDZ5Z2TSGW2LkyPiLxqYaJPBW4');
+    var signature = Message('hello, world').sign(privateKey);
+console.log('sig:' + signature);
+    // verify
+    var address = privateKey.toAddress();
+    var signature2 = signature;//'H/DIn8uA1scAuKLlCx+/9LnAcJtwQQ0PmcPrJUq90aboLv3fH5fFvY+vmbfOSFEtGarznYli6ShPr9RXwY9UrIY=';
+    var verified = Message('hello, world').verify(address, signature2);
+console.log('verify:' + verified + ' from address: ' + address);
+
+
+
+
+    // pool ---------------------------------
+    var pool = new Dash.lib.pool();
+
+    pool.store('hello', 'world');
+
+    console.log(pool.fetch('hello'));
+*/
+</script>
+</body>
+</html>

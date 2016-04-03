@@ -1,0 +1,31 @@
+.nav-tabs > li > a{
+  background-color:#1c75bc;
+  border-color:#94d2fc;
+  color:#fff;
+}
+
+.nav-tabs > li, .nav-pills > li{
+  float:none;
+  display:inline-block;
+}
+
+.nav-tabs, .nav-pills{
+  text-align:center;
+  color:#94d2fc;
+}
+
+.tab-content > .tab-pane{
+  padding:5px 20px;
+  background-color:#fff;
+  margin:0 auto 25px;
+  margin-top:0px;
+  border-radius:0px;
+  box-shadow:0px 2px 2px rgba(0, 0, 0, 0.3);
+  min-height:400px;
+}
+
+.nav > li > a:hover, .nav > li > a:focus{
+  text-decoration:none;
+  background-color:#5399d1;
+}
+

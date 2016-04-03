@@ -1,0 +1,22 @@
+{
+  "name": "dashpay-wallet-html",
+  "version": "0.0.1",
+  "description": "Serverless HTML Dash Evolution Wallet Prototype",
+  "scripts": {
+    "clean": "rm -rfv build/*",
+    "build": "grunt --gruntfile Gruntfile.js"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-combine": "latest",
+    "grunt-lineending": "latest"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "keywords": [
+    "dash HTML wallet"
+  ]
+}

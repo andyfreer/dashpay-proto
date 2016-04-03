@@ -1,0 +1,25 @@
+{
+  "name": "dashpay-wallet",
+  "version": "0.0.1",
+  "description": "Dash Wallet REST-Client SDK",
+  "homepage": "https://www.dash.org",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rfv build/*",
+    "build": "grunt"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "latest",
+    "grunt": "latest",
+    "grunt-browserify": "latest",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:andyfreer/dash-wallet-sdk-js.git"
+  }
+}

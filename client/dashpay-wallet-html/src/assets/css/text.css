@@ -1,0 +1,22 @@
+.text-info{
+  color:#fff;
+}
+
+a.text-info:focus, a.text-info:hover{
+  color:#69c8f8;
+}
+
+.h1, .h2, .h3, h1, h2, h3{
+  margin-top:20px;
+  margin-bottom:10px;
+  color:#1c75bc;
+}
+
+.list-inline > li{
+  display:inline-block;
+  padding-right:1px;
+  padding-left:1px;
+  margin-left:auto;
+  margin-right:auto;
+}
+

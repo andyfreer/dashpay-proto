@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>DashPay-Wallet</title>
+</head>
+<body>
+<script src="build/DashPayWallet.js"></script>
+<script>
+
+    // some tests on the built lib...
+    var Dash = require('DashPayWallet');
+
+    // These probably don't work now since various restructuring...
+
+    //var bitcorelib = require('bitcore-lib-dash');
+    console.log(Dash.lib.core.PrivateKey().toAddress().toString());
+
+    //var dash = require('DashLib');
+    //console.log(Dash.lib.core.crypto.newAddress());
+    //Dash.lib.crypto.testECIES();
+
+    // DashWallet - test creating multiple instances
+    var eventHandler = function(item) { console.log("event: " + item); };
+    var testWallet = new Dash.Wallet();
+    testWallet.subscribe(eventHandler);
+    testWallet.setID('1');
+    var testWallet2 = new Dash.Wallet();
+    testWallet2.subscribe(eventHandler);
+    testWallet2.setID('2');
+    console.log('Wallet1 id: ' + testWallet.getID() + '');
+    console.log('Wallet2 id: ' + testWallet2.getID() + '');
+
+
+</script>
+</body>
+</html>

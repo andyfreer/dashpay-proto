@@ -1,0 +1,31 @@
+{
+  "name": "dashpay-dapi",
+  "version": "0.0.1",
+  "description": "A REST based Decentralized-API for the Dash cryptocurrency network.",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./bin/dapi-cli"
+  },
+  "dependencies": {
+    "async": "^2.0.0-rc.1",
+    "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "jsonwebtoken": "^5.7.0",
+    "mongoose": "^4.4.6",
+    "morgan": "^1.7.0",
+    "socket.io": "^1.4.5",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=4.3"
+  },
+  "bin": {
+    "dapi": "./bin/dapi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:andyfreer/dashpay-api.git"
+  }
+}
