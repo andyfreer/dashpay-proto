@@ -58,8 +58,8 @@ Lib     | Features
 
 Make sure you have Grunt installed first:
 ```
-npm install grunt -g
-npm install grunt-cli -g
+$ npm install grunt -g
+$ npm install grunt-cli -g
 ```
 
 Then the fastest way to get started is run the main project build scripts in the root.  That will install and build each sub-project folder:
@@ -67,30 +67,36 @@ Then the fastest way to get started is run the main project build scripts in the
 ```
 $ npm run install
 $ npm run build
-$ npm run start
 ```
 Alternatively you can build each project individually using the same commands in each sub project folder.
 
 After building, the libs and clients should have created the distribution files in sub-project's ./build folders.
 
+###Deleting Bitcore-lib-dash duplicates
+
+After npm install, manually delete the duplicate bitcore-lib-dash folders in the node_modules folders in these directories:
+
+dashpay-lib/node_modules/bitcore-ecies-das.
+dashpay-lib/node_modules/bitcore-message-dash
+dashpay-lib/node_modules/bitcore-mnemonic-dash
+
+(temp solution for this issue: https://forum.bitcore.io/t/more-than-one-instance-of-bitcore-lib-found/699/3)
+
+###Running the DAPI node server
+From the project root or in the server/dashpay-dapi-node folder:
+```
+$ npm run start
+```
+
 ###Running the client
-With the server node running, you can test the D-API b opening the built HTML file in a web browser:
+Open the built HTML file in a web browser:
 ```
 ├── client                      
     ├── dashpay-wallet-html          
        ├── build  
-          ├── dashpay-wallet-proto.html           
+          ├── dashpay.html
 ```
-
-
-
-
-
-
-
-
- 
-
+Alternatively you can run unbuilt index.html in the dashpay-wallet-html/src folder.
 
 ##DAuth (Prototype)
 
@@ -130,4 +136,5 @@ Masternodes-->User Agent: Web-Quorum IPs, VINs and pubkeys
 Note left of User Agent: Verify MN sigs
 
 ```
+
 
