@@ -1,32 +1,42 @@
-// accounts controller
+// accounts tab controller
+//---------------------------
 
-function InitAccount() {
-    $('#inp-createAccount-name').val('');
-    $('#inp-createAccount-passphrase').val('');
+// onload
+HideAccountsList();
+HideCreateAccountForm();
 
-    $('#txt-createAccount-result').hide();
-    $('#btn-createAccount').prop('disabled', false);
-    $('#btn-createAccount-refresh').prop('disabled', false);
-
-    NewMnemonic();
-    //var xpriv2 = code.toHDPrivateKey('my passphrase');
-    //console.log(xpriv2.toString());
+// called when tab selected..
+function SelectAccountsTab() {
+    HideCreateAccountForm();
+    ShowAccountsList();
 }
 
-// init the form on load
-InitAccount();
+// **************************************************
+// Accounts list
+// **************************************************
+function ShowAccountsList() {
+    $('#table-accounts').hide();
+    $('txt-accounts-loading').show();
+    $('#list-accounts').show();
 
-function NewMnemonic() {
-    var passphrase = Dash.lib.keys.genMnemonic();
-    console.log('Mnemonic generated: ' + passphrase);
-    $('#txt-createAccount-passphrase').text(passphrase);
+    getAccounts(function (numAccounts) {
+        console.log('numb. accounts: ' + numAccounts);
+        if (numAccounts === 0) {
+            HideAccountsList();
+            ShowCreateAccountForm();
+        } else {
+            HideCreateAccountForm();
+        }
+    });
 }
+function HideAccountsList() {
+    $('#table-accounts').hide();
+}
+function getAccounts(callback) {
 
-$('#btn-createAccount-refresh').click(function() {
-    NewMnemonic();
-});
+    $('#table-accounts').hide();
+    $('#txt-accounts-loading').show();
 
-$("#btn-accounts-get").click(function() {
     var btn = $('#btn-accounts-get');
     wallet.getAccounts(
         function (err, res) {
@@ -42,8 +52,11 @@ $("#btn-accounts-get").click(function() {
                 } else if (res.status !== 200) {
                     showAlertMsg('Masternode error.  Please try again.', alertMsg, true);
                 } else {
-                    // Status 200
-                    //$('#txt-accounts-list').text(JSON.stringify(res));
+
+                    $('#table-accounts').show();
+                    $('#txt-accounts-loading').hide();
+
+                    $("#table-accounts-body").find("tr").remove();
 
                     // draw the decrypted account list data
                     $.each(res, function () {
@@ -56,15 +69,44 @@ $("#btn-accounts-get").click(function() {
                             $('#table-accounts').append(tr);
                         });
                     });
+
+                    callback(res.res.length);
+                    return;
                 }
             }
+            callback(0);
         }
     );
+}
+
+// **************************************************
+// Create account form
+// **************************************************
+
+// called if no accounts are found on tab load, or add account button clicked..
+function ShowCreateAccountForm() {
+    // create account form..
+    $('#panel-accounts-create').show();
+    $('#inp-createAccount-name').val('');
+    $('#inp-createAccount-passphrase').val('');
+    $('#txt-createAccount-result').hide();
+    $('#btn-createAccount').prop('disabled', false);
+    $('#btn-createAccount-refresh').prop('disabled', false);
+    NewMnemonic();
+}
+
+// called after account add succeeded
+function HideCreateAccountForm() {
+    $('#panel-accounts-create').hide();
+}
+
+// add account button clicked..
+$("#btn-createAccount-show").click(function() {
+    ShowCreateAccountForm();
+    HideAccountsList();
 });
 
-// form submit clicked
 $("#btn-createAccount").click(function() {
-
     var accName = $('#inp-createAccount-name').val();
     var accPassphrase = $('#inp-createAccount-passphrase').val();
     var accPassphraseText = $('#txt-createAccount-passphrase').text();
@@ -95,11 +137,22 @@ $("#btn-createAccount").click(function() {
                     } else if (res.status !== 200) {
                         showAlertMsg('Masternode error.  Please try again.', alertMsg, true);
                     } else {
-                        // Status 200
-
+                        // success
+                        HideCreateAccountForm();
+                        ShowAccountsList();
                     }
                 }
             }
         );
     }
+});
+
+function NewMnemonic() {
+    var passphrase = Dash.lib.keys.genMnemonic();
+    console.log('Mnemonic generated: ' + passphrase);
+    $('#txt-createAccount-passphrase').text(passphrase);
+}
+
+$('#btn-createAccount-refresh').click(function() {
+    NewMnemonic();
 });

@@ -72,29 +72,29 @@
                         <p>Total balance, account summary and inbox for messages, contact/payment/arbitration requests will go here..</p>
                     </div>
                     <div class="tab-pane active" role="tabpanel" id="tab-4">
-                        <div class="container-fluid">
+                        <div class="container-fluid" id="list-accounts">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h4 class="text-primary" id="txt-accounts-list">Fund Accounts</h4></div>
-                                <div class="col-md-12">
-                                    <button class="btn btn-success pull-left" type="button" id="btn-accounts-get">Get Accounts</button>
-                                </div>
+                                    <h4 class="text-primary" id="txt-accounts-list">Fund Accounts<button class="btn btn-success pull-right" type="button" id="btn-createAccount-show">Add Account</button></h4></div>
+                                <div class="col-md-12"></div>
                             </div>
                             <div class="table-responsive">
-                                <div>
-<table id='table-accounts' class='table'>
-    <thead>
-        <tr>
-            <th> Account Name </th>
-            <th> Balance </th>
-            <th> Options </th>
-        </tr>
-    </thead>
-</table>  
-</div>
+                                <p id="txt-accounts-loading">Loading accounts...</p>
+                                <div class="table-responsive">
+                                    <table class="table" id="table-accounts">
+                                        <thead>
+                                            <tr>
+                                                <th>Account Name</th>
+                                                <th>Balance </th>
+                                                <th>Transactions </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table-accounts-body"></tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                        <div class="panel panel-primary">
+                        <div class="panel panel-primary" id="panel-accounts-create">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Create a Funds Account</h3></div>
                             <div class="panel-body">
@@ -220,6 +220,8 @@
     <script type="text/javascript" src="js/signup.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/accounts.js"></script>
+
+
 </body>
 
 </html>

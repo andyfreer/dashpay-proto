@@ -11,6 +11,9 @@ var eventHandler = function(item) {
         $('#page-loggedout').hide();
         $('#page-loggedin').show();
 
+        // default to show the accounts tab when the prototype logs in...
+        SelectAccountsTab();
+
     } else if (item === 0) {
 
         // show the logged out page
@@ -96,10 +99,17 @@ function showAlertMsg(msg, alertObj, isError) {
     });
 }(jQuery));
 
-/*
+
 var activeTab = null;
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     activeTab = e.target;
-    console.log('tab = ' + activeTab.id);
+    prevTab = e.relatedTarget;
+    console.log('tab = ' + activeTab);
+
+    switch (activeTab.hash) {
+        case '#tab-4':
+            SelectAccountsTab();
+            break;
+
+    }
 });
-*/
