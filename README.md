@@ -25,7 +25,7 @@ Project     | Purpose
 [DashPay-DAPI-Node](#) |  The Node application providing the Decentalized API (D-API) on Masternodes
 [DashPay-Lib-JS](#)  | Dash Evolution T3 Javascript library, includes Bitcore for Tier 2 functions
 [DashPay-Wallet-SDK-JS](#)   |  Client SDK for building DashPay wallets, will include Browser SPV
-[DashPay-Charge-SDK-JS](#)  | Merchant SDK for adding decentralized Dash payments and charges to web applications.
+[DashPay-Checkout-SDK-JS](#)  | Merchant SDK for adding decentralized Dash payments and charges to web applications.
 [DashPay-HTML-Wallet](#)  | Single-Page HTML DashPay Wallet client that connects to DashPay Nodes using D-API
 
 Note that projects are laid out in a client-server style architecture that's familiar to most web and app developers even though the 'server' part is provided by the decentralized Dash network.  
@@ -74,13 +74,22 @@ After building, the libs and clients should have created the distribution files 
 
 ###Deleting Bitcore-lib-dash duplicates
 
-After npm install, manually delete the duplicate bitcore-lib-dash folders in the node_modules folders in these directories:
+After npm install, manually delete the duplicate bitcore-lib-dash folders by doing:
+```
+$ rm -rfv lib/dashpay-lib/node_modules/bitcore-ecies-dash/node_modules/bitcore-lib-dash/
+$ rm -rfv lib/dashpay-lib/node_modules/bitcore-message-dash/node_modules/bitcore-lib-dash/
+$ rm -rfv lib/dashpay-lib/node_modules/bitcore-mnemonic-dash/node_modules/bitcore-lib-dash/
+```
+(this is a temporary solution for this issue: https://forum.bitcore.io/t/more-than-one-instance-of-bitcore-lib-found/699/3)
 
-dashpay-lib/node_modules/bitcore-ecies-das.
-dashpay-lib/node_modules/bitcore-message-dash
-dashpay-lib/node_modules/bitcore-mnemonic-dash
+###Generate SSL keys for the node server
+The node server requires SSL keys, you can generate them by doing:
+```
+$ cd server/dashpay-dapi-node/ssl
+$ chmod +x genkeys.sh
+$ genkeys.sh
+```
 
-(temp solution for this issue: https://forum.bitcore.io/t/more-than-one-instance-of-bitcore-lib-found/699/3)
 
 ###Running the DAPI node server
 From the project root or in the server/dashpay-dapi-node folder:
