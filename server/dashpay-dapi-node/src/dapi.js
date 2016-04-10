@@ -16,11 +16,12 @@ var fs = require('fs');
 var Dash = require('../../../lib/dashpay-lib');
 
 // routes
-var SignupRouter = require('./routers/signup');
-var LoginRouter = require('./routers/login');
-var UserRouter = require('./routers/user');
-var PublicRouter = require('./routers/public');
-var DebugRouter = require('./routers/debug');
+var LoginRouter = require('./routers/auth/login');
+var UserRouter = require('./routers/auth/user');
+var AppRouter = require('./routers/auth/app');
+var NetRouter = require('./routers/public/net');
+var SPVRouter = require('./routers/public/spv');
+var SignupRouter = require('./routers/public/signup');
 
 // DAPI startup sequence
 async.waterfall([
@@ -65,19 +66,24 @@ async.waterfall([
         var userRouter = new UserRouter(app);
         callback(null, app);
     },
+    function initAppRouter(app, callback) {
+        log.info('Starting App Router');
+        var appRouter = new AppRouter(app);
+        callback(null, app);
+    },
     function initSignupRouter(app, callback) {
         log.info('Starting Signup Router');
         var signupRouter = new SignupRouter(app);
         callback(null, app);
     },
-    function initPublicRouter(app, callback) {
-        log.info('Starting Public Router');
-        var publicRouter = new PublicRouter(app);
+    function initNetRouter(app, callback) {
+        log.info('Starting Net Router');
+        var netRouter = new NetRouter(app);
         callback(null, app);
     },
-    function initDebugRouter(app, callback) {
-        log.info('Starting Debug Router');
-        var debugRouter = new DebugRouter(app);
+    function initSPVRouter(app, callback) {
+        log.info('Starting SPV Router');
+        var spvRouter = new SPVRouter(app);
         callback(null, app);
     },
     function initWebSockets(app, callback) {
@@ -89,11 +95,14 @@ async.waterfall([
     function initHTTPSServer(app, callback) {
         log.info('Starting HTTPS server');
 
-        // test to create internal server error to check stacktrace isn't dumped to the response..
+        // test to check the API is up
+        app.get('/ping', function (req, res) { res.send('pong'); });
+
+        // test to create internal server error to check response..
         app.get('/error', function (req, res) { throw new Error();});
 
-        // production error handler, release version will have this removed from NodeJS itself.
-        //app.use(function(err, req, res, next) { log.info('DAPI error: ' + err); res.sendStatus(500); });
+        // production error handler
+        app.use(function(err, req, res, next) { log.info('DAPI error: ' + err); res.sendStatus(500); });
 
         // Load SSL keys
         var pkey = fs.readFileSync('ssl/ssl-key.pem');
