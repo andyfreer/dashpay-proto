@@ -39,4 +39,5 @@ node_modules
 
 # Debug log from npm
 npm-debug.log
-npm-debug.log.*
+npm-debug.log.*dashpay/client/bundle.js
+dashpay/client/node_modules
