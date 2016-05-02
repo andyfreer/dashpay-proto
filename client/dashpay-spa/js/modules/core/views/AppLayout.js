@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 var marionette = require('backbone.marionette');
 var ModalRegion = require('../regions/ModalRegion');
 
@@ -28,6 +26,7 @@ module.exports = marionette.LayoutView.extend({
     this.showView(view);
   },
   showView: function (view) {
+      console.log(view);
     if (view === this.currentView) {
       return;
     }

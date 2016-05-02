@@ -1,14 +1,19 @@
 'use strict';
 
-var marionette = require('backbone.marionette');
-
+var marionette = require('backbone.marionette'),
+channel = require('../../channel');
 module.exports = marionette.AppRouter.extend({
 routes : {
     "" : 'index'
   },
     index: function() {
-  alert('index called');
-      channel.command('ui:show-view', new HomeView());
-      channel.command('reset-title');
+       
+   console.log(window.location); 
+     // channel.command('ui:show-view', new HomeView());
+      //channel.command('reset-title');
+    },
+    execute:function(name){
+        console.log('r');
+         window.location = 'index.html#register'
     }
 });

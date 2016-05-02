@@ -6,8 +6,14 @@ Backbone.$ = $
 var Marionette =require('backbone.marionette');
 var CoreModule = require('./modules/Core');
 var AuthModule=require('./modules/AuthModule');
+var  handlebars = require('handlebars');
 
-    var app = new Marionette.Application({});
+Marionette.Renderer.render = function (template, data) {
+    template = template.trim();
+    return handlebars.compile(template)(data);
+};
+
+var app = new Marionette.Application({});
 
 
 app.on('before:start',function(){

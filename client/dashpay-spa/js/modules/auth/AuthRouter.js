@@ -9,9 +9,12 @@ routes : {
     "register" : 'register',
     "signIn":"signIn"
   },
-  register : function() {
+  register : function() { 
+      channel.command('ui:show-view',new AuthLayoutView());
     console.log('register action route');
-    channel.command('show-ui',new AuthLayoutView());
+    
   },
-  signIn:function(){ console.log('sign in action route');}
+  signIn:function(){
+      channel.command('ui:show-view',new AuthLayoutView());
+  }
 });
