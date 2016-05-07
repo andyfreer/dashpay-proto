@@ -1,8 +1,9 @@
 'use strict';
 
-var marionette = require('backbone.marionette');
-var AuthLayoutView = require('./views/AuthLayoutView');
-var channel = require('../../channel');
+var marionette = require('backbone.marionette'),
+registerView = require('./views/RegisterView'),
+signInView = require('./views/LoginView'),
+channel = require('../../channel');
 
 module.exports = marionette.AppRouter.extend({
 routes : {
@@ -10,11 +11,9 @@ routes : {
     "signIn":"signIn"
   },
   register : function() { 
-      channel.command('ui:show-view',new AuthLayoutView());
-    console.log('register action route');
-    
+      channel.command('ui:show-view',new registerView());
   },
   signIn:function(){
-      channel.command('ui:show-view',new AuthLayoutView());
+      channel.command('ui:show-view',new signInView());
   }
 });

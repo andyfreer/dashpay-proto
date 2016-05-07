@@ -74,9 +74,10 @@ module.exports = marionette.Module.extend({
 },{"./core/CoreRouter":10,"./core/views/AppLayout":13,"backbone.marionette":16}],5:[function(require,module,exports){
 'use strict';
 
-var marionette = require('backbone.marionette');
-var AuthLayoutView = require('./views/AuthLayoutView');
-var channel = require('../../channel');
+var marionette = require('backbone.marionette'),
+registerView = require('./views/RegisterView'),
+signInView = require('./views/LoginView'),
+channel = require('../../channel');
 
 module.exports = marionette.AppRouter.extend({
 routes : {
@@ -84,37 +85,16 @@ routes : {
     "signIn":"signIn"
   },
   register : function() { 
-      channel.command('ui:show-view',new AuthLayoutView());
-    console.log('register action route');
-    
+      channel.command('ui:show-view',new registerView());
   },
   signIn:function(){
-      channel.command('ui:show-view',new AuthLayoutView());
+      channel.command('ui:show-view',new signInView());
   }
 });
-},{"../../channel":2,"./views/AuthLayoutView":7,"backbone.marionette":16}],6:[function(require,module,exports){
-module.exports = "<div class=container><div class=\"panel panel-info\" id=login></div><div id=signupbox style=\"display:none; margin-top:50px\" class=\"mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2\"><div class=\"panel panel-info\"><div class=panel-heading><div class=panel-title>Sign Up</div><div style=\"float:right; font-size: 85%; position: relative; top:-10px\"><a id=signinlink href=# onclick=\"$('#signupbox').hide(); $('#loginbox').show()\">Sign In</a></div></div><div class=panel-body><form id=signupform class=form-horizontal role=form><div id=signupalert style=display:none class=\"alert alert-danger\"><p>Error:</p><span></span></div><div class=form-group><label for=email class=\"col-md-3 control-label\">Email</label><div class=col-md-9><input type=text class=form-control name=email placeholder=\"Email Address\"></div></div><div class=form-group><label for=firstname class=\"col-md-3 control-label\">First Name</label><div class=col-md-9><input type=text class=form-control name=firstname placeholder=\"First Name\"></div></div><div class=form-group><label for=lastname class=\"col-md-3 control-label\">Last Name</label><div class=col-md-9><input type=text class=form-control name=lastname placeholder=\"Last Name\"></div></div><div class=form-group><label for=password class=\"col-md-3 control-label\">Password</label><div class=col-md-9><input type=password class=form-control name=passwd placeholder=Password></div></div><div class=form-group><label for=icode class=\"col-md-3 control-label\">Invitation Code</label><div class=col-md-9><input type=text class=form-control name=icode placeholder=\"\"></div></div><div class=form-group><div class=\"col-md-offset-3 col-md-9\"><button id=btn-signup type=button class=\"btn btn-info\"><i class=icon-hand-right></i> &nbsp Sign Up</button> <span style=margin-left:8px>or</span></div></div><div style=\"border-top: 1px solid #999; padding-top:20px\" class=form-group><div class=\"col-md-offset-3 col-md-9\"><button id=btn-fbsignup type=button class=\"btn btn-primary\"><i class=icon-facebook></i>   Sign Up with Facebook</button></div></div></form></div></div></div></div>";
+},{"../../channel":2,"./views/LoginView":7,"./views/RegisterView":9,"backbone.marionette":16}],6:[function(require,module,exports){
+module.exports = "<div class=container><div class=\"panel panel-info\" id=login><div class=panel-heading><div class=panel-title>Sign In</div><div style=\"float:right; font-size: 80%; position: relative; top:-10px\"><a href=#>Forgot password?</a></div></div><div style=padding-top:30px class=panel-body><div style=display:none id=login-alert class=\"alert alert-danger col-sm-12\"></div><form id=loginform class=form-horizontal role=form><div style=\"margin-bottom: 25px\" class=input-group><span class=input-group-addon><i class=\"glyphicon glyphicon-user\"></i></span> <input id=login-username type=text class=form-control name=username value=\"\" placeholder=\"username or email\"></div><div style=\"margin-bottom: 25px\" class=input-group><span class=input-group-addon><i class=\"glyphicon glyphicon-lock\"></i></span> <input id=login-password type=password class=form-control name=password placeholder=password></div><div class=input-group><div style=margin-top:10px class=form-group><div class=\"col-sm-12 controls\"><a id=btn-login href=# class=\"btn btn-success\">Login</a></div></div><div class=form-group><div class=\"col-md-12 control\"><div style=\"border-top: 1px solid#888; padding-top:15px; font-size:85%\">Don't have an account! <a href=# onclick=\"$('#loginbox').hide(); $('#signupbox').show()\">Sign Up Here</a></div></div></div></div></form></div></div></div>";
 
 },{}],7:[function(require,module,exports){
-'use strict';
-
-var marionette = require('backbone.marionette'),
-LoginView = require('./LoginView');
-
-module.exports = marionette.LayoutView.extend({
-    template:require('./AuthLayoutView.html'),
-    regions:{
-        login:'#login'
-    },
-    onRender:function(){
-        console.log('rendering layout');
-        this.login.show(new LoginView);
-    }
-});
-},{"./AuthLayoutView.html":6,"./LoginView":9,"backbone.marionette":16}],8:[function(require,module,exports){
-module.exports = "<div class=panel-heading><div class=panel-title>Sign In</div><div style=\"float:right; font-size: 80%; position: relative; top:-10px\"><a href=#>Forgot password?</a></div></div><div style=padding-top:30px class=panel-body><div style=display:none id=login-alert class=\"alert alert-danger col-sm-12\"></div><form id=loginform class=form-horizontal role=form><div style=\"margin-bottom: 25px\" class=input-group><span class=input-group-addon><i class=\"glyphicon glyphicon-user\"></i></span> <input id=login-username type=text class=form-control name=username value=\"\" placeholder=\"username or email\"></div><div style=\"margin-bottom: 25px\" class=input-group><span class=input-group-addon><i class=\"glyphicon glyphicon-lock\"></i></span> <input id=login-password type=password class=form-control name=password placeholder=password></div><div class=input-group><div style=margin-top:10px class=form-group><div class=\"col-sm-12 controls\"><a id=btn-login href=# class=\"btn btn-success\">Login</a></div></div><div class=form-group><div class=\"col-md-12 control\"><div style=\"border-top: 1px solid#888; padding-top:15px; font-size:85%\">Don't have an account! <a href=# onclick=\"$('#loginbox').hide(); $('#signupbox').show()\">Sign Up Here</a></div></div></div></div></form></div>";
-
-},{}],9:[function(require,module,exports){
 'use strict';
 
 var marionette = require('backbone.marionette');
@@ -122,7 +102,18 @@ var marionette = require('backbone.marionette');
 module.exports = marionette.ItemView.extend({
 template:require('./LoginView.html')
 });
-},{"./LoginView.html":8,"backbone.marionette":16}],10:[function(require,module,exports){
+},{"./LoginView.html":6,"backbone.marionette":16}],8:[function(require,module,exports){
+module.exports = "<div class=container><div id=signupbox class=\"col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2\"><div class=\"panel panel-info\"><div class=panel-heading><div class=panel-title>Register</div><div style=\"float:right; font-size: 85%; position: relative; top:-10px\"><a href=#signIn>Sign In</a></div></div><div class=panel-body><form id=signupform class=form-horizontal role=form><div id=signupalert style=display:none class=\"alert alert-danger\"><p>Error:</p><span></span></div><div class=form-group><label for=email class=\"col-md-3 control-label\">Email</label><div class=col-md-9><input type=text class=form-control name=email placeholder=\"Email Address\"></div></div><div class=form-group><label for=firstname class=\"col-md-3 control-label\">First Name</label><div class=col-md-9><input type=text class=form-control name=firstname placeholder=\"First Name\"></div></div><div class=form-group><label for=lastname class=\"col-md-3 control-label\">Last Name</label><div class=col-md-9><input type=text class=form-control name=lastname placeholder=\"Last Name\"></div></div><div class=form-group><label for=password class=\"col-md-3 control-label\">Password</label><div class=col-md-9><input type=password class=form-control name=passwd placeholder=Password></div></div><div class=form-group><div class=\"col-md-offset-3 col-md-9\"><button id=btn-signup type=button class=\"btn btn-success\"><i class=icon-hand-right></i> Sign Up</button></div></div></form></div></div></div></div>";
+
+},{}],9:[function(require,module,exports){
+'use strict';
+
+var marionette = require('backbone.marionette');
+
+module.exports = marionette.ItemView.extend({
+    template:require('./RegisterView.html')
+});
+},{"./RegisterView.html":8,"backbone.marionette":16}],10:[function(require,module,exports){
 'use strict';
 
 var marionette = require('backbone.marionette'),
