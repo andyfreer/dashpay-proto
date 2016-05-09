@@ -15,7 +15,7 @@ module.exports = marionette.ItemView.extend({
         'click #loginBtn': 'login'
     },
     login: function() {
-        if (!this.ui.username.val() || !this.ui.password) {
+        if (!this.ui.username.val() || !this.ui.password.val()) {
             alert('Enter a username and password');
         } else {
             wallet.Login(this.ui.username.val(), this.ui.password.val(),

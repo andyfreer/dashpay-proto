@@ -110,7 +110,7 @@ module.exports = marionette.ItemView.extend({
         'click #loginBtn': 'login'
     },
     login: function() {
-        if (!this.ui.username.val() || !this.ui.password) {
+        if (!this.ui.username.val() || !this.ui.password.val()) {
             alert('Enter a username and password');
         } else {
             wallet.Login(this.ui.username.val(), this.ui.password.val(),
@@ -136,7 +136,7 @@ module.exports = marionette.ItemView.extend({
     }
 });
 },{"./LoginView.html":6,"backbone.marionette":16,"jquery":63}],8:[function(require,module,exports){
-module.exports = "<div class=container><div id=signupbox class=\"col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2\"><div class=\"panel panel-info\"><div class=panel-heading><div class=panel-title>Register</div><div style=\"float:right; font-size: 85%; position: relative; top:-10px\"><a href=#signIn>Sign In</a></div></div><div class=panel-body><form id=signupform class=form-horizontal role=form><div id=signupalert style=display:none class=\"alert alert-danger\"><p>Error:</p><span></span></div><div class=form-group><label for=email class=\"col-md-3 control-label\">Email</label><div class=col-md-9><input type=text class=form-control name=email placeholder=\"Email Address\"></div></div><div class=form-group><label for=firstname class=\"col-md-3 control-label\">First Name</label><div class=col-md-9><input type=text class=form-control name=firstname placeholder=\"First Name\"></div></div><div class=form-group><label for=lastname class=\"col-md-3 control-label\">Last Name</label><div class=col-md-9><input type=text class=form-control name=lastname placeholder=\"Last Name\"></div></div><div class=form-group><label for=password class=\"col-md-3 control-label\">Password</label><div class=col-md-9><input type=password class=form-control name=passwd placeholder=Password></div></div><div class=form-group><div class=\"col-md-offset-3 col-md-9\"><button id=btn-signup type=button class=\"btn btn-success\"><i class=icon-hand-right></i> Sign Up</button></div></div></form></div></div></div></div>";
+module.exports = "<div class=container><div id=signupbox class=\"col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2\"><div class=\"panel panel-info\"><div class=panel-heading><div class=panel-title>Register</div><div style=\"float:right; font-size: 85%; position: relative; top:-10px\"><a href=#signIn>Sign In</a></div></div><div class=panel-body><form id=signupform class=form-horizontal role=form><div class=form-group><label for=email class=\"col-md-3 control-label\">Email</label><div class=col-md-9><input type=text class=form-control name=username placeholder=username></div></div><div class=form-group><label for=password class=\"col-md-3 control-label\">Password</label><div class=col-md-9><input type=password class=form-control name=password placeholder=Password></div></div><div class=form-group><label for=password class=\"col-md-3 control-label\">Comfirm Password</label><div class=col-md-9><input type=password class=form-control name=passwordconfirmation placeholder=\"Comfirm Password\"></div></div><div class=form-group><div class=\"col-md-offset-3 col-md-9\"><button id=signupBtn type=button class=\"btn btn-success\">Sign Up</button></div></div></form></div></div></div></div>";
 
 },{}],9:[function(require,module,exports){
 'use strict';
@@ -144,7 +144,21 @@ module.exports = "<div class=container><div id=signupbox class=\"col-md-6 col-md
 var marionette = require('backbone.marionette');
 
 module.exports = marionette.ItemView.extend({
-    template:require('./RegisterView.html')
+    template:require('./RegisterView.html'),
+    ui: {
+        username: 'input[name=username]',
+        password: 'input[name=password]',
+        comfirmPassword: 'input[name=passwordconfirmation]'
+    },
+    events: { 
+        'click #signupBtn': 'register'
+    },
+    register: function() {
+        if (!this.ui.username.val() || !this.ui.password.val() || !this.ui.comfirmPassword.val()) {
+            alert('Enter a username and password');
+        } 
+        //do register here!
+    }
 });
 },{"./RegisterView.html":8,"backbone.marionette":16}],10:[function(require,module,exports){
 'use strict';
