@@ -1,35 +1,24 @@
 'use strict';
 
-var marionette = require('backbone.marionette');
+var marionette = require('backbone');
 var $= require('jquery');
 
 var wallet = require('../../../../../../lib/dashpay-wallet-client');
 
 module.exports = marionette.ItemView.extend({
-
     template: require('./LoginView.html'),
-    //template: '<div><button class="btn btn-success input-submitbtn" type="button" id="btn-login">Login </button></div>',
-
-    events: { 'click #btn-login' : 'attemptLogin'},
-
-    onRender: function() {
-        console.log('loginView onRender');
-
-        /*
-        $('#btn-login').on('click',function(){
-            alert('Login clicked2');
-        });
-        */
-
-        // just a test of login code ported from the dashpay-wallet-html client...
-        var uname = 'andy'; //$('#inp-login-uname').val();
-        var upwd = '123456'; //$('#inp-login-pwd').val();
-
-        // validate
-        if (!uname || !upwd) {
-            //showAlertMsg('Enter a username and password', alertMsg, true);
+    ui: {
+        username: 'input[name=username]',
+        password: 'input[name=password]'
+    },
+    events: { 
+        'click #loginBtn': 'login'
+    },
+    login: function() {
+        if (!this.ui.username.val() || !this.ui.password) {
+            alert('Enter a username and password');
         } else {
-            wallet.Login(uname, upwd,
+            wallet.Login(this.ui.username.val(), this.ui.password.val(),
                 function (err, res) {
                     if (err) {
                         console.log('Response Error: ' + err);
@@ -49,8 +38,5 @@ module.exports = marionette.ItemView.extend({
                 }
             );
         }
-    },
-    attempLogin: function() {
-        alert('Login clicked');
     }
 });
