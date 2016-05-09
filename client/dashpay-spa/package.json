@@ -16,14 +16,17 @@
     "underscore": "^1.7.0"
   } ,
   "devDependencies": {
-  "browserify": "latest",
-  "stringify":"5.1.0",
-  "watchify": "0.8.1",  
-  "gulp": "3.7.0",
-  "vinyl-source-stream": "latest"
-},
-"scripts": {
-  "build-js": "browserify js/app.js > ../bundle.js -d",
-    "watch-js": "watchify js/app.js -o ../bundle.js -dv"
-}
+    "browserify": "latest",
+    "stringify":"5.1.0",
+    "watchify": "0.8.1",
+    "gulp": "3.7.0",
+    "vinyl-source-stream": "latest",
+    "grunt": "latest",
+    "grunt-combine": "latest",
+    "grunt-lineending": "latest"
+  },
+  "scripts": {
+    "build-js": "browserify js/app.js > ../bundle.js -d",
+      "watch-js": "watchify js/app.js -o ../bundle.js -dv"
+  }
 }

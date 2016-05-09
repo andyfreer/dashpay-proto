@@ -1,0 +1,25 @@
+{
+  "name": "dashpay-wallet-client",
+  "version": "0.0.1",
+  "description": "Dash Wallet Client",
+  "homepage": "https://www.dash.org",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rfv build/*",
+    "build": "grunt"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "latest",
+    "grunt": "latest",
+    "grunt-browserify": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}
