@@ -1,6 +1,6 @@
 'use strict';
 
-var marionette = require('backbone');
+var marionette = require('backbone.marionette');
 var $= require('jquery');
 
 var wallet = require('../../../../../../lib/dashpay-wallet-client');
