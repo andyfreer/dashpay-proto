@@ -5,8 +5,9 @@ var Backbone = require('backbone');
 Backbone.$ = $
 var Marionette =require('backbone.marionette');
 var CoreModule = require('./modules/Core');
-var AuthModule=require('./modules/AuthModule');
-var  handlebars = require('handlebars');
+var AuthModule =require('./modules/AuthModule');
+var MainModule =require('./modules/MainModule');
+var handlebars = require('handlebars');
 
 Marionette.Renderer.render = function (template, data) {
     template = template.trim();
@@ -18,12 +19,13 @@ var app = new Marionette.Application({});
 
 app.on('before:start',function(){
     this.module('Core',CoreModule);
-    this.module('AuthModule',AuthModule); 
+    this.module('AuthModule', AuthModule);
+    this.module('MainModule', MainModule);
 });
-    app.on('start', function () {
+app.on('start', function () {
 
-      Backbone.history.start();
+  Backbone.history.start();
 
-    });
+});
 
-    app.start();
+app.start();
