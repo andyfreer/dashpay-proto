@@ -2,6 +2,7 @@
 
 var marionette = require('backbone.marionette');
 var $= require('jquery');
+var authModel = require('../../core/models/Auth');
 
 var wallet = require('../../../../../../lib/dashpay-wallet-client');
 
@@ -18,6 +19,8 @@ module.exports = marionette.ItemView.extend({
         if (!this.ui.username.val() || !this.ui.password.val()) {
             alert('Enter a username and password');
         } else {
+            authModel.authorise(this.ui.username.val(), this.ui.password.val());
+            return;
             wallet.Login(this.ui.username.val(), this.ui.password.val(),
                 function (err, res) {
                     if (err) {

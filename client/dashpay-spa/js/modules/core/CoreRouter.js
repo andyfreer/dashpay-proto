@@ -13,7 +13,6 @@ routes : {
       //channel.command('reset-title');
     },
     execute:function(name){
-        console.log('r');
          window.location = 'index.html#register'
     }
 });

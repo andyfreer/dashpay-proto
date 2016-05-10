@@ -14,6 +14,7 @@ routes : {
       channel.command('ui:show-view',new registerView());
   },
   signIn:function(){
+      
       channel.command('ui:show-view',new signInView());
   }
 });
