@@ -1,12 +1,12 @@
 'use strict';
 
 var marionette = require('backbone.marionette');
-var MainRouter = require('./main/MainRouter');
+var AccountsRouter = require('./accounts/AccountsRouter');
 
 module.exports = marionette.Module.extend({
     initialize: function () {
 
-        this.router = new MainRouter();
+        this.router = new AccountsRouter();
     },
     onStart: function () {
 

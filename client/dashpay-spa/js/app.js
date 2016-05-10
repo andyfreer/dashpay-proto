@@ -6,7 +6,7 @@ Backbone.$ = $
 var Marionette =require('backbone.marionette');
 var CoreModule = require('./modules/Core');
 var AuthModule =require('./modules/AuthModule');
-var MainModule =require('./modules/MainModule');
+var AccountsModule =require('./modules/AccountsModule');
 var handlebars = require('handlebars');
 
 Marionette.Renderer.render = function (template, data) {
@@ -20,7 +20,7 @@ var app = new Marionette.Application({});
 app.on('before:start',function(){
     this.module('Core',CoreModule);
     this.module('AuthModule', AuthModule);
-    this.module('MainModule', MainModule);
+    this.module('AccountsMoule', AccountsModule);
 });
 app.on('start', function () {
 
