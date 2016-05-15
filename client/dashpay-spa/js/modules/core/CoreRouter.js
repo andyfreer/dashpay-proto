@@ -7,8 +7,6 @@ routes : {
     "" : 'index'
   },
     index: function() {
-       
-   console.log(window.location); 
      // channel.command('ui:show-view', new HomeView());
       //channel.command('reset-title');
     },

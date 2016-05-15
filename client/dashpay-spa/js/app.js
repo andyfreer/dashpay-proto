@@ -1,8 +1,12 @@
 
 window._ = require('underscore');
-var $ = require('jquery');
+window.$ = window.jQuery = require('jquery');
+var channel = require('./channel');
+require('bootstrap');
+
+
 var Backbone = require('backbone');
-Backbone.$ = $
+Backbone.$ = window.$;
 var Marionette = require('backbone.marionette'),
     CoreModule = require('./modules/Core'),
     AuthModule = require('./modules/AuthModule'),
@@ -21,6 +25,7 @@ var app = new Marionette.Application({
             if (authModel.isAuthorised()) {
                 this.module('AccountsMoule', AccountsModule);
                Backbone.history.navigate('accounts', {trigger: true});
+               channel.trigger('nav:change', 'accounts');
             }
         });
     }

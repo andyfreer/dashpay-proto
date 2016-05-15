@@ -22,6 +22,7 @@ module.exports = marionette.LayoutView.extend({
     },
     onRender: function() {
         this.getRegion('header').show(this.headerView);
+        console.log(this.getRegion('modal'));
     },
     showError: function(view) {
         this.showView(view);
@@ -36,6 +37,7 @@ module.exports = marionette.LayoutView.extend({
         this.showChildView('content', view);
     },
     showModal: function(view) {
+        console.log('show modal');
         this.showChildView('modal', view);
     }
 });

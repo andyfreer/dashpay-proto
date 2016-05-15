@@ -1,7 +1,8 @@
 'use strict';
 
 var marionette = require('backbone.marionette'),
-    accountsView = require('./views/AccountsView'),
+    AccountsCompositeView = require('./views/AccountsCompositeView'),
+  AccountCollection = require('./models/AccountCollection'),
     channel = require('../../channel');
 
 module.exports = marionette.AppRouter.extend({
@@ -9,6 +10,8 @@ module.exports = marionette.AppRouter.extend({
         "accounts":"accounts"
     },
     accounts:function(){
-        channel.command('ui:show-view',new accountsView());
+        channel.command('ui:show-view',new AccountsCompositeView({
+            collection:new AccountCollection()
+        }));
     }
 });
