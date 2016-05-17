@@ -10,6 +10,7 @@
     "browserify": "*",
     "handlebars": "*",
     "jquery": "^2.2.3",
+    "jquery-validation": "^1.15.0",
     "node-underscorify": "0.0.14",
     "stringify": "^5.1.0",
     "underscore": "^1.7.0"

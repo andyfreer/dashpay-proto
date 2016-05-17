@@ -1,9 +1,10 @@
 
 window._ = require('underscore');
 window.$ = window.jQuery = require('jquery');
+
 var channel = require('./channel');
 require('bootstrap');
-
+require('jquery-validation');
 
 var Backbone = require('backbone');
 Backbone.$ = window.$;

@@ -10,15 +10,53 @@ module.exports = marionette.ItemView.extend({
     template: require('./LoginView.html'),
     ui: {
         username: 'input[name=username]',
-        password: 'input[name=password]'
+        password: 'input[name=password]',
+        form:'#loginform'
     },
     events: { 
         'click #loginBtn': 'login'
     },
+    onRender:function(){
+        this.ui.form.validate({
+            errorClass:'help-inline',
+            rules:{
+                username:{'required':true}, password:{'required':true}
+            },
+            highlight:function (element) {
+                
+            },
+            unhighlight:function(element) {
+                $(element).closest('.form-group').removeClass('has-error');
+            }, 
+            errorPlacement: function(error,element) {
+    return true;
+  },
+  
+    showErrors: function(errorMap, errorList) {
+        $.each(this.successList, function(index, value) {
+        return $(value).popover("hide");
+        });
+        return $.each(errorList, function(index, value) {
+             $(value.element).closest('.form-group').addClass('has-error');
+            var _popover;
+            
+            _popover = $(value.element).popover({
+                trigger: "manual",
+                placement: "top",
+                content: value.message,
+                template: "<div class=\"popover\"><div class=\"arrow\"></div><div class=\"popover-inner\"><div class=\"popover-content\"><p></p></div></div></div>"
+            });
+            console.log(_popover.data("popover"));
+            _popover.data("popover");
+            return $(value.element).popover("show");
+            });
+    }
+  
+        })
+    },
     login: function() {
-        if (!this.ui.username.val() || !this.ui.password.val()) {
-            alert('Enter a username and password');
-        } else {
+        if(!this.ui.form.valid())return;
+        
             authModel.authorise(this.ui.username.val(), this.ui.password.val());
             return;
             wallet.Login(this.ui.username.val(), this.ui.password.val(),
@@ -41,5 +79,5 @@ module.exports = marionette.ItemView.extend({
                 }
             );
         }
-    }
+    
 });
