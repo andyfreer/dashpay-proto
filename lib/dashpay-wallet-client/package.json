@@ -10,7 +10,9 @@
   },
   "author": "",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "bluebird": "^3.4.0"
+  },
   "devDependencies": {
     "browserify": "latest",
     "grunt": "latest",

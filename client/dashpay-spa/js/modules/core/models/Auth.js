@@ -1,6 +1,7 @@
 'use strict';
 
 var backbone = require('backbone');
+var wallet = require('../../../../../../lib/dashpay-wallet-client');
 
 var security =  backbone.Model.extend({
     initialize:function(){
@@ -12,7 +13,21 @@ var security =  backbone.Model.extend({
     },
     authorise:function(username, password){
         //call on client DAPI and await promise to resolve
-        return this.set('IsAuthorised',true);
+        var authed = false;
+        console.log('model login:' + username + '/' + password);
+        wallet.LoginAsync(username, password).then(function(response) {
+
+            if (response.status === 200) {
+                console.error('Login Success! ' + response.res);
+                // Succesful login...
+                authed = true;
+            } else {
+                console.error('Login failed: ' + JSON.stringify(response));
+            }
+        }, function(error) {
+            console.error('Login error');
+        });
+        return this.set('IsAuthorised',authed);
     }
 });
 

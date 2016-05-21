@@ -3,7 +3,7 @@
 var log = require('../../util/log');
 var Dash = require('../../../../../lib/dashpay-lib');
 
-// implement core DashDrive access here...
+// implement core (Dash daemon) DashDrive access here...
 module.exports = function() {
 
     this.Signup = function(uname, ukey, err) {
