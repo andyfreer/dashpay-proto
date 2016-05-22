@@ -7,7 +7,7 @@ module.exports = function (grunt) {
         combine: {
             single: {
                 input: "./src/index.html",
-                output: "./build/DashPay.html",
+                output: "./dist/DashPay.html",
                 tokens: [
 
                     { token: ' src="assets/bootstrap/js/bootstrap.min.js">', string: '><%= grunt.file.read("./src/assets/bootstrap/js/bootstrap.min.js") %>' },
@@ -15,8 +15,8 @@ module.exports = function (grunt) {
                     // these scripts need file import due to encoding that breaks the string import..
                     { token: ' src="assets/js/jquery.min.js">', string: '>//jquery.min.js' },
                     { token: '//jquery.min.js', file: './src/assets/js/jquery.min.js' },
-                    { token: ' src="../../../lib/dashpay-wallet-sdk/build/DashPayWallet.js">', string: '>//DashPayWallet.js' },
-                    { token: '//DashPayWallet.js', file: '../../lib/dashpay-wallet-sdk/build/DashPayWallet.min.js' },
+                    { token: ' src="../../../lib/dashpay-wallet-sdk/dist/DashPayWallet.js">', string: '>//GruntWalletToken' },
+                    { token: '//GruntWalletToken', file: '../../lib/dashpay-wallet-sdk/dist/DashPayWallet.min.js' },
 
                     // css
                     { token: '<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">', string: '<style type="text/css"><%= grunt.file.read("./src/assets/bootstrap/css/bootstrap.min.css") %></style>' },
@@ -43,12 +43,12 @@ module.exports = function (grunt) {
                     eol: 'lf'
                 },
                 files: {
-                    './build/DashPay.html': ['./build/DashPay.html']
+                    './dist/DashPay.html': ['./dist/DashPay.html']
                 }
             }
         }
     });
-    grunt.file.mkdir('./build/');
+    grunt.file.mkdir('./dist/');
     grunt.file.defaultEncoding = 'utf-8';
     grunt.loadNpmTasks("grunt-combine");
     grunt.loadNpmTasks('grunt-lineending');

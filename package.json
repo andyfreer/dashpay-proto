@@ -3,21 +3,15 @@
   "version": "0.0.1",
   "description": "Decentralized API node & Client for the Dash cryptocurrency",
   "scripts": {
-    "install": "(npm install) && (cd lib/dashpay-lib && npm install) && (cd lib/dashpay-wallet-sdk && npm install) && (cd lib/dashpay-wallet-sdk && npm install) && (cd client/dashpay-wallet-html && npm install) && (cd server/dashpay-dapi-node && npm install)",
-    "uninstall": "(rm -rfv node_modules) && (rm -rfv lib/dashpay-lib/node_modules) && (rm -rfv lib/dashpay-wallet-sdk/node_modules) && (rm -rfv lib/dashpay-wallet-sdk/node_modules) && (rm -rfv client/dashpay-wallet-html/node_modules)",
-    "clean": "(rm -rfv lib/dashpay-lib/build/)&& (rm -rfv lib/dashpay-wallet-sdk/build/) && (rm -rfv lib/dashpay-wallet-sdk/build/) && (rm -rfv client/dashpay-wallet-html/build/)",
-    "build": "(grunt --gruntfile ./lib/dashpay-lib/Gruntfile.js) && (grunt --gruntfile ./lib/dashpay-wallet-sdk/Gruntfile.js) && (grunt --gruntfile ./lib/dashpay-wallet-sdk/Gruntfile.js) && (grunt --gruntfile ./client/dashpay-wallet-html/Gruntfile.js)",
+    "setup": "(cd setup && clean.sh && install.sh && build.sh)",
+    "genkeys": "(cd server/dashpay-dapi-node/ssl && genkeys.sh)",
+    "install": "(cd setup && install.sh)",
+    "clean": "(cd setup && clean.sh)",
+    "build": "(cd setup && build.sh)",
     "start": "(cd server/dashpay-dapi-node && npm run start)"
   },
   "author": "The Dash Developers",
   "license": "MIT",
-  "devDependencies": {
-    "browserify": "latest",
-    "uglify-js": "latest",
-    "grunt": "latest",
-    "grunt-browserify": "latest",
-    "grunt-contrib-watch": "latest"
-  },
   "repository": {
     "type": "git",
     "url": "git@github.com:andyfreer/dashpay-api.git"
