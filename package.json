@@ -6,6 +6,7 @@
     "setup": "(cd setup && clean.sh && install.sh && build.sh)",
     "genkeys": "(cd server/dashpay-dapi-node/ssl && genkeys.sh)",
     "install": "(cd setup && install.sh)",
+    "uninstall": "(cd setup && uninstall.sh)",
     "clean": "(cd setup && clean.sh)",
     "build": "(cd setup && build.sh)",
     "start": "(cd server/dashpay-dapi-node && npm run start)"
