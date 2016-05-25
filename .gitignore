@@ -14,6 +14,8 @@ pids
 # SSL certs
 *.pem
 
+# BASH dumps
+*.stackdump
 
 # Build folders
 build

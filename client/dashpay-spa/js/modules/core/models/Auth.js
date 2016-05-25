@@ -25,7 +25,7 @@ var security =  backbone.Model.extend({
                 console.error('Login failed: ' + JSON.stringify(response));
             }
         }, function(error) {
-            console.error('Login error');
+            console.error('Login error: ' + error);
         });
         return this.set('IsAuthorised',authed);
     }

@@ -1,4 +1,4 @@
-# DELETE BUILT FOLDERS
+# BUILD ALL PROJECTS
 
 ./clean.sh
 

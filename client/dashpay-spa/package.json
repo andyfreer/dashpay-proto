@@ -15,10 +15,20 @@
   },
   "devDependencies": {
     "browserify": "latest",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-bake": "^1.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7",
+    "pump": "^1.0.1",
+    "run-sequence": "^1.2.1",
     "stringify": "5.1.0",
-    "watchify": "0.8.1",
-    "gulp": "3.7.0",
-    "vinyl-source-stream": "latest"
+    "through": "^2.3.8",
+    "through-gulp": "^0.5.0",
+    "vinyl-source-stream": "latest",
+    "watchify": "0.8.1"
   },
   "scripts": {
     "build-js": "browserify js/app.js > ../bundle.js -d",

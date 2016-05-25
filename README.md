@@ -1,11 +1,43 @@
 
 #DashPay (Prototype)
 
-DashPay enables decentralized online payments with the Dash cryptocurrency from any device, using a REST based API decentralized across 3,500 dedicated Dash Masternodes in the Dash P2P network.
+DashPay enables decentralized online payments with the Dash cryptocurrency from any device, using a REST based API decentralized across [3,800 Masternodes](http://178.254.23.111/~pub/masternode_count.png)  in the Dash P2P network.
 
-DashPay is part of Dash's upcoming version, Evolution, and also includes social and usability features to make cryptocurrencies easier to use with friends.
+DashPay is part of Dash's upcoming version, Evolution, and also includes social and usability features to make cryptocurrencies easier to use and available from any device.
 
 To learn more about Dash Evolution check the [documentation](https://www.dash.org/evolution/) or visit [www.dash.org](http://www.dash.org).
+
+##Getting Started
+
+DashPay is written entirely in JavaScript and requires NodeJS to be installed on your machine to develop with the decentralized API locally.  For Windows users, also make sure you have a BASH client installed such as Git-bash so you can use the setup scripts.
+
+To get started, make sure you have Grunt & Gulp installed first:
+```
+$ npm install grunt-cli -g
+$ npm install gulp-cli -g
+```
+Then run the setup script to install and build all projects.  You can also use this script later to reset the project to it's initial state and reinstall/rebuild everything if you have build issues or new packages have been added to the source.
+```
+$ npm run setup
+```
+Next, generate test SSL keys or copy your own to the folder [server/dashpay-dapi-node/ssl]
+```
+$ npm run genkeys
+```
+Start the node server
+```
+$ npm run start
+```
+
+###Running the client
+After building and starting the node app, open the built HTML file in a web browser:
+```
+├── client                      
+    ├── dashpay-spa          
+       ├── dist  
+          ├── DashPay.html
+```
+
 
 ## Project Status
 
@@ -24,17 +56,21 @@ Project     | Purpose
 -------- | ----- 
 [DashPay-DAPI-Node](#) |  The Node application providing the Decentalized API (D-API) on Masternodes
 [DashPay-Lib-JS](#)  | Dash Evolution T3 Javascript library, includes Bitcore for Tier 2 functions
-[DashPay-Wallet-SDK-JS](#)   |  Client SDK for building DashPay wallets, will include Browser SPV
+[DashPay-Wallet-SDK-JS](#)   |  SDK for building DashPay client wallets, will include Browser SPV
+[DashPay-Wallet-Client-JS](#)   |  Promise API Client for the SDK
 [DashPay-Checkout-SDK-JS](#)  | Merchant SDK for adding decentralized Dash payments and charges to web applications.
-[DashPay-HTML-Wallet](#)  | Single-Page HTML DashPay Wallet client that connects to DashPay Nodes using D-API
+[DashPay-HTML-Wallet](#)  | Single-Page HTML Wallet using the Wallet SDK (Deprecated)
+[DashPay-SPA](#)  | Single-Page HTML App built on Backbone/Marionette using the Wallet Client
 
 Note that projects are laid out in a client-server style architecture that's familiar to most web and app developers even though the 'server' part is provided by the decentralized Dash network.  
 
     ├── client                      
-    │   ├── dashpay-html-wallet          
+    │   ├── dashpay-html-wallet      
+    │   ├── dashpay-spa      
     ├── lib                    
     │   ├── dashpay-lib          
-    │   ├── dashpay-checkout-sdk         
+    │   ├── dashpay-checkout-sdk 
+    │   ├── dashpay-wallet-client          
     │   └── dashpay-wallet-sdk
     ├── server                    
     │   ├── dashpay-dapi-node
@@ -53,59 +89,6 @@ Lib     | Features
 [bitcore-message-dash](https://github.com/andyfreer/bitcore-message-dash)   |  Message signing & verification functions
 [bitcore-mnemonic-dash](https://github.com/andyfreer/bitcore-mnemonic-dash)  |  Mnemonic sentence generation for the generation of deterministic keys 
 
-
-##Getting Started
-
-Make sure you have Grunt installed first:
-```
-$ npm install grunt -g
-$ npm install grunt-cli -g
-```
-
-Then the fastest way to get started is run the main project build scripts in the root.  That will install and build each sub-project folder:
-
-```
-$ npm run install
-$ npm run build
-```
-Alternatively you can build each project individually using the same commands in each sub project folder.
-
-After building, the libs and clients should have created the distribution files in sub-project's ./build folders.
-
-###Deleting Bitcore-lib-dash duplicates
-
-After npm install, manually delete the duplicate bitcore-lib-dash folders by doing:
-```
-$ rm -rfv lib/dashpay-lib/node_modules/bitcore-ecies-dash/node_modules/bitcore-lib-dash/
-$ rm -rfv lib/dashpay-lib/node_modules/bitcore-message-dash/node_modules/bitcore-lib-dash/
-$ rm -rfv lib/dashpay-lib/node_modules/bitcore-mnemonic-dash/node_modules/bitcore-lib-dash/
-```
-(this is a temporary solution for this issue: https://forum.bitcore.io/t/more-than-one-instance-of-bitcore-lib-found/699/3)
-
-###Generate SSL keys for the node server
-The node server requires SSL keys, you can generate them by doing:
-```
-$ cd server/dashpay-dapi-node/ssl
-$ chmod +x genkeys.sh
-$ genkeys.sh
-```
-
-
-###Running the DAPI node server
-From the project root or in the server/dashpay-dapi-node folder:
-```
-$ npm run start
-```
-
-###Running the client
-Open the built HTML file in a web browser:
-```
-├── client                      
-    ├── dashpay-wallet-html          
-       ├── build  
-          ├── dashpay.html
-```
-Alternatively you can run unbuilt index.html in the dashpay-wallet-html/src folder.
 
 ##DAuth (Prototype)
 
@@ -145,7 +128,4 @@ Masternodes-->User Agent: Web-Quorum IPs, VINs and pubkeys
 Note left of User Agent: Verify MN sigs
 
 ```
-
-Other
-
 

@@ -11,6 +11,6 @@ routes : {
       //channel.command('reset-title');
     },
     execute:function(name){
-         window.location = 'index.html#register'
+         window.location = '#register'
     }
 });
