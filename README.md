@@ -18,7 +18,7 @@ $ npm install gulp-cli -g
 ```
 Then run the setup script to install and build all projects.  You can also use this script later to reset the project to it's initial state and reinstall/rebuild everything if you have build issues or new packages have been added to the source.
 ```
-$ npm run setup
+$ sudo npm run setup
 ```
 Next, generate test SSL keys or copy your own to the folder [server/dashpay-dapi-node/ssl]
 ```
@@ -29,6 +29,10 @@ Start the node server
 $ npm run start
 ```
 
+To test you can access the API, visit [https://localhost:8080/ping](https://localhost:8080/ping) in your browser and you should see the response "pong".  
+
+If you get a certificate error with your generated SSL keys, add an exception to your browser to allow them.
+
 ###Running the client
 After building and starting the node app, open the built HTML file in a web browser:
 ```
@@ -37,7 +41,6 @@ After building and starting the node app, open the built HTML file in a web brow
        ├── dist  
           ├── DashPay.html
 ```
-
 
 ## Project Status
 

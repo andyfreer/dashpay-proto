@@ -1,20 +1,20 @@
 {
   "name": "dashpay",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Decentralized API node & Client for the Dash cryptocurrency",
   "scripts": {
-    "setup": "(cd setup && uninstall.sh && clean.sh && install.sh && build.sh)",
-    "genkeys": "(cd server/dashpay-dapi-node/ssl && genkeys.sh)",
-    "install": "(cd setup && install.sh)",
-    "uninstall": "(cd setup && uninstall.sh)",
-    "clean": "(cd setup && clean.sh)",
-    "build": "(cd setup && build.sh)",
+    "setup": "(cd setup && ./uninstall.sh && ./clean.sh && ./install.sh && ./build.sh)",
+    "genkeys": "(cd server/dashpay-dapi-node/ssl && ./genkeys.sh)",
+    "install": "(cd setup && ./install.sh)",
+    "uninstall": "(cd setup && ./uninstall.sh)",
+    "clean": "(cd setup && ./clean.sh)",
+    "build": "(cd setup && ./build.sh)",
     "start": "(cd server/dashpay-dapi-node && npm run start)"
   },
   "author": "The Dash Developers",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:andyfreer/dashpay-api.git"
+    "url": "git@github.com:andyfreer/dashpay.git"
   }
 }

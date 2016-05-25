@@ -17,6 +17,9 @@ pids
 # BASH dumps
 *.stackdump
 
+# backups
+*.*~
+
 # Build folders
 build
 dist
