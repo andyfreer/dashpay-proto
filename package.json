@@ -3,11 +3,11 @@
   "version": "0.0.2",
   "description": "Decentralized API node & Client for the Dash cryptocurrency",
   "scripts": {
-    "setup": "(cd setup && ./uninstall.sh && ./clean.sh && ./install.sh && ./build.sh)",
+    "setup": "(cd setup && ./uninstall.sh && ./install.sh && ./build.sh)",
+    "setup-win": "(cd setup && uninstall.sh && install.sh && build.sh)",
     "genkeys": "(cd server/dashpay-dapi-node/ssl && ./genkeys.sh)",
     "install": "(cd setup && ./install.sh)",
     "uninstall": "(cd setup && ./uninstall.sh)",
-    "clean": "(cd setup && ./clean.sh)",
     "build": "(cd setup && ./build.sh)",
     "start": "(cd server/dashpay-dapi-node && npm run start)"
   },
