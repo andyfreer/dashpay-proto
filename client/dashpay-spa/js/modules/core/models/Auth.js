@@ -15,6 +15,9 @@ var security =  backbone.Model.extend({
         //call on client DAPI and await promise to resolve
         var authed = false;
         console.log('model login:' + username + '/' + password);
+
+        console.log('mnemonic test: ' + wallet.lib.keys.genMnemonic());
+
         wallet.LoginAsync(username, password).then(function(response) {
 
             if (response.status === 200) {
